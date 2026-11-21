@@ -73,6 +73,8 @@ Next.js の `Link` などを使うときは、`LinkProvider` に渡します。`
 
 ## ドキュメント
 
+https://ui.under18.dev/ で公開しています。
+
 `docs/` は VitePress のドキュメントサイトです。コンポーネントごとに、動くプレビューとコード、Props、アクセシビリティの注意をまとめています。プレビューは `docs/demos/` の React コンポーネントを、そのまま描いています。
 
 ```sh
@@ -81,7 +83,7 @@ bun run docs:build   # docs/.vitepress/dist に書き出す
 bun run test:docs    # 全ページを、ライトとダークで検査する（エラー・プレビューの表示・axe）
 ```
 
-Cloudflare Pages では、このリポジトリを Git 連携でつなぎ、次のように設定します。
+Cloudflare Pages に、このリポジトリを Git 連携でつないでいます。設定は次のとおりです。
 
 | 項目 | 値 |
 |---|---|

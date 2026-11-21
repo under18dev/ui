@@ -4,7 +4,7 @@
   "description": "Under18 Developers のデザインシステム（design.md U18-DESIGN-001）に沿った React コンポーネント",
   "license": "Apache-2.0",
   "author": "Under18 Developers",
-  "homepage": "https://github.com/under18dev/ui#readme",
+  "homepage": "https://ui.under18.dev/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/under18dev/ui.git"
