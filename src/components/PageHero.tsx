@@ -10,7 +10,7 @@ export interface PageHeroProps {
   actions?: ReactNode
 }
 
-/** 下層ページの冒頭。ラベル・h1・リード文（design.md §5.2 の H1 と Lead） */
+/** 下層ページの冒頭。ラベル・h1・リード文 */
 export function PageHero({ eyebrow, title, children, actions }: PageHeroProps) {
   return (
     <div>

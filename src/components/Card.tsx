@@ -12,8 +12,8 @@ export interface CardProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * 紙のようなカード（DECISION-004）。イベント・お知らせなど、実際の異なるデータを並べるときだけ使う。
- * 罫線のリストで読めるなら RowList を使う（design.md §6.4・§17）。
+ * 紙のようなカード。イベント・お知らせなど、実際の異なるデータを並べるときだけ使う。
+ * 罫線のリストで読めるなら RowList を使う。
  */
 export function Card({ as: Tag = 'article', variant = 'paper', padding = 'none', className, ...rest }: CardProps) {
   return (
@@ -44,7 +44,7 @@ export interface LinkCardProps {
 }
 
 /**
- * 全体がリンクのカード。タイトルのリンクをカード全体に広げるので、中に別のリンクを入れない（design.md §7.3）。
+ * 全体がリンクのカード。タイトルのリンクをカード全体に広げるので、中に別のリンクを入れない。
  * 画像がなくても崩れない。
  */
 export function LinkCard({

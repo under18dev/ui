@@ -24,7 +24,7 @@ export interface SiteFooterProps {
   copyright?: ReactNode
 }
 
-/** サイトのフッター（design.md §7.6）。団体名と一文説明、ページへのリンク、SNS、著作権表記 */
+/** サイトのフッター。団体名と一文説明、ページへのリンク、SNS、著作権表記 */
 export function SiteFooter({ name = 'Under18 Developers', tagline, columns, social = [], copyright }: SiteFooterProps) {
   const renderLink = (link: FooterLink) => (
     <li key={`${link.href}-${link.label}`}>

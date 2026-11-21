@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, type CSSProperties, type ElementTyp
 // サーバーでの描画では useLayoutEffect の警告が出るので、ブラウザだけで使う
 const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
-// IntersectionObserver はページで1つだけ作って共有する（design.md §13.2）
+// IntersectionObserver はページで1つだけ作って共有する
 let observer: IntersectionObserver | null = null
 
 function getObserver(): IntersectionObserver {
@@ -13,7 +13,7 @@ function getObserver(): IntersectionObserver {
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue
-        // 一度表示したら、逆にスクロールしても隠さない（design.md §9.3）
+        // 一度表示したら、逆にスクロールしても隠さない
         entry.target.setAttribute('data-revealed', '')
         observer?.unobserve(entry.target)
       }
@@ -39,7 +39,7 @@ export interface RevealProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * 画面に入ったときに一度だけ、下から 12〜16px ふわっと表示する（design.md §9）。
+ * 画面に入ったときに一度だけ、下から 12〜16px ふわっと表示する。
  * JS が動かないとき・動きを減らす設定のときは、最初から表示したまま。
  * 隠すのは、JS が動いて observer の準備ができてから（html の data-reveal-ready）。
  */

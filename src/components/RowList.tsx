@@ -10,13 +10,13 @@ export interface RowListProps {
   children: ReactNode
 }
 
-/** 罫線で区切った縦のリスト。カードを並べる代わりに使う（design.md §6.4・§7.3） */
+/** 罫線で区切った縦のリスト。カードを並べる代わりに使う */
 export function RowList({ as: Tag = 'ul', className, children }: RowListProps) {
   return <Tag className={cx('u18-row-list', className)}>{children}</Tag>
 }
 
 export interface RowProps {
-  /** 番号。意味のある順序があるときだけ（§17: 演出のためだけの 01 / 02 は禁止） */
+  /** 番号。意味のある順序があるときだけ（演出のためだけの 01 / 02 は付けない） */
   index?: string
   title: ReactNode
   description?: ReactNode
@@ -38,7 +38,7 @@ export interface RowProps {
   reveal?: boolean
 }
 
-/** RowList の1行。index / title / supporting text / metadata / arrow の順（design.md §7.3） */
+/** RowList の1行。index / title / supporting text / metadata / arrow の順 */
 export function Row({
   index,
   title,

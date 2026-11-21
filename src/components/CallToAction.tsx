@@ -6,13 +6,13 @@ import { Section } from './Layout'
 export interface CallToActionProps {
   title: ReactNode
   body?: ReactNode
-  /** 主要な Button を1つだけ渡す（design.md §8.8） */
+  /** 主要な Button を1つだけ渡す */
   action: ReactNode
   tone?: 'canvas' | 'section'
   id?: string
 }
 
-/** ページの最後の静かな呼びかけ（S08）。フッター直前に強い CTA を2つ続けない */
+/** ページの最後の静かな呼びかけ。フッター直前に強い CTA を2つ続けない */
 export function CallToAction({ title, body, action, tone = 'section', id }: CallToActionProps) {
   const fallbackId = useId()
   const headingId = id ? `${id}-heading` : fallbackId

@@ -24,7 +24,7 @@
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* 日本語を文節で改行する（対応ブラウザのみ。design.md §5.3） */
+    /* 日本語を文節で改行する（対応ブラウザのみ） */
     word-break: auto-phrase;
   }
 

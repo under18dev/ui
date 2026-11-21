@@ -17,7 +17,7 @@ export interface SectionHeadingProps {
   className?: string
 }
 
-/** 章の見出し。ラベル → 見出し → リード文の順に、16〜32px の間隔で並べる（design.md §6.3） */
+/** 章の見出し。ラベル → 見出し → リード文の順に、16〜32px の間隔で並べる */
 export function SectionHeading({
   id,
   eyebrow,

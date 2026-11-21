@@ -8,7 +8,7 @@ export interface EmptyStateProps {
   headingLevel?: 2 | 3 | 4
 }
 
-/** 掲載できるデータがないときの表示。架空の内容で埋めない（design.md §7.4・§18） */
+/** 掲載できるデータがないときの表示。架空の内容で埋めない */
 export function EmptyState({ title, description, action, headingLevel = 3 }: EmptyStateProps) {
   const H = `h${headingLevel}` as const
   return (

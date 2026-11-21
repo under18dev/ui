@@ -7,7 +7,7 @@ type Tone = 'primary' | 'secondary' | 'muted'
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /** 見出しの階層（h1〜h4）。見た目の大きさは size で別に決める */
   level: 1 | 2 | 3 | 4
-  /** 文字の大きさ（design.md §5.2）。未指定なら level と同じ */
+  /** 文字の大きさ。未指定なら level と同じ */
   size?: HeadingSize
   tone?: Tone
   /** 大きな英字の見出しだけ字間を詰める（-0.025em）。日本語には使わない */
@@ -47,7 +47,7 @@ export interface EyebrowProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode
 }
 
-/** 見出しの上の英字の小さなラベル（Activities など）。日本語には使わない（design.md §5.3） */
+/** 見出しの上の英字の小さなラベル（Activities など）。日本語には使わない */
 export function Eyebrow({ className, ...rest }: EyebrowProps) {
   return <p className={cx('u18-type-label u18-eyebrow', className)} {...rest} />
 }

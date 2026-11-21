@@ -1,4 +1,4 @@
-// テーマ設定（design.md §4・§19）。初期描画は ThemeScript が同じ仕様で確定する
+// テーマ設定。初期描画は ThemeScript が同じ仕様で確定する
 export type ThemeChoice = 'system' | 'light' | 'dark'
 export type ResolvedTheme = 'light' | 'dark'
 
@@ -54,7 +54,7 @@ export function applyTheme(choice: ThemeChoice, { animate = false } = {}): Resol
 }
 
 /**
- * head に置く同期スクリプトの中身（design.md §4.2）。
+ * head に置く同期スクリプトの中身。
  * React の外（Astro・素の HTML など）で使うときは、この文字列を <script> に入れる。
  */
 export function themeScriptSource({ heroMotion = false } = {}): string {

@@ -14,7 +14,7 @@ export interface SplitProps {
 }
 
 /**
- * 短い文と、実際の活動資料・挿絵を1点だけ並べる章（design.md §8.3）。
+ * 短い文と、実際の活動資料・挿絵を1点だけ並べる章。
  * スマホでは文 → 挿絵の順に縦に積む。スクロールを奪わない。
  */
 export function Split({ eyebrow, title, body, visual, reverse = false, id }: SplitProps) {

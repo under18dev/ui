@@ -16,7 +16,7 @@ export interface ThemeControlProps {
 }
 
 /**
- * テーマ切替（design.md §4.3）。1つのボタンと、自動 / ライト / ダークを選ぶメニュー。
+ * テーマ切替。1つのボタンと、自動 / ライト / ダークを選ぶメニュー。
  * 現在の値を文字で出し、選択状態は aria-checked で伝える。矢印キー・Home・End・Escape で操作できる。
  */
 export function ThemeControl({ className }: ThemeControlProps) {

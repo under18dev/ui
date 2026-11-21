@@ -4,7 +4,7 @@ import { ButtonGroup } from './Button'
 export interface HeroProps {
   /** 見出しの上の小さな英字（団体名など） */
   eyebrow?: string
-  /** 主役の見出し。2〜3行に収める（design.md §8.1） */
+  /** 主役の見出し。2〜3行に収める */
   title: ReactNode
   /** 説明文。1〜2文 */
   lead?: ReactNode
@@ -19,7 +19,7 @@ export interface HeroProps {
 const step = (n: number) => ({ '--hero-step': n }) as CSSProperties
 
 /**
- * トップの最初の画面（design.md §8.1）。左寄せの大きな見出しを主役にする。
+ * トップの最初の画面。左寄せの大きな見出しを主役にする。
  * ThemeScript に heroMotion を付けると、セッションの最初の1回だけ順に表示する（見出し → 説明 → ボタン、120ms ずつ）。
  */
 export function Hero({ eyebrow, title, lead, actions, scrollTargetId, scrollLabel = '下へスクロール', id }: HeroProps) {

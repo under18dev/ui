@@ -17,7 +17,7 @@ export interface SiteHeaderProps {
   /** ロゴのリンクの読み上げ名 */
   logoLabel?: string
   homeHref?: string
-  /** 主要ナビ（4項目程度。design.md §2.3） */
+  /** 主要ナビ（4項目程度） */
   items: NavItem[]
   /** 右端の「参加する」などの導線 */
   cta?: NavItem
@@ -34,7 +34,7 @@ function isCurrent(currentPath: string | undefined, href: string): boolean {
 }
 
 /**
- * サイトのヘッダー（design.md §7.1・§2.3）。上に固定し、スクロールしたら背景と区切り線を付ける。
+ * サイトのヘッダー。上に固定し、スクロールしたら背景と区切り線を付ける。
  * 1024px 未満では「メニュー」ボタンで全画面のメニューを開く。開いている間は背景のスクロールを止め、
  * フォーカスをメニューの中に閉じ込め、Escape で閉じてボタンにフォーカスを戻す。
  */

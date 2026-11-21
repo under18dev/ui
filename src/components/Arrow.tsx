@@ -8,7 +8,7 @@ export interface ArrowProps {
 
 const glyphs = { next: '→', external: '↗', down: '↓' } as const
 
-/** 装飾の矢印。親に u18-arrow-host を付けると、hover で 3px だけ動く（design.md §7.2） */
+/** 装飾の矢印。親に u18-arrow-host を付けると、hover で 3px だけ動く */
 export function Arrow({ direction = 'next', className }: ArrowProps) {
   return (
     <span className={cx('u18-arrow', className)} data-direction={direction} aria-hidden="true">

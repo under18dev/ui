@@ -33,7 +33,7 @@
   transform: none;
 }
 
-/* ===== Layout（design.md §6.1） ===== */
+/* ===== Layout ===== */
 .u18-container {
   width: min(
     var(--container-max),
@@ -63,7 +63,7 @@
   max-width: 42em;
 }
 
-/* 余白（design.md §6.2 の space トークン。4px の倍数） */
+/* 余白（4px の倍数） */
 .u18-mt-4 {
   margin-top: 16px;
 }
@@ -107,7 +107,7 @@
   gap: 12px;
 }
 
-/* ===== Type scale（design.md §5.2） ===== */
+/* ===== Type scale ===== */
 .u18-type-display-xl {
   font-size: 48px;
   line-height: 1.08;
@@ -237,7 +237,7 @@
   font-family: var(--font-mono);
 }
 
-/* ===== Button（design.md §7.2 / DECISION-004） ===== */
+/* ===== Button ===== */
 .u18-button {
   display: inline-flex;
   min-height: 48px;
@@ -399,7 +399,7 @@
   color: var(--color-text-muted);
 }
 
-/* ===== Card（実際のデータを表示するときだけ使う。design.md §6.4 / DECISION-004） ===== */
+/* ===== Card（実際のデータを表示するときだけ使う） ===== */
 .u18-card {
   position: relative;
   display: flex;
@@ -535,7 +535,7 @@
   }
 }
 
-/* ===== Row list（カードの代わりの罫線リスト。design.md §7.3） ===== */
+/* ===== Row list（カードの代わりの罫線リスト） ===== */
 .u18-row-list {
   border-top: 1px solid var(--color-border);
 }
@@ -623,7 +623,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   }
 }
 
-/* 原則の大きな行（S05） */
+/* 原則などの大きな行 */
 .u18-row[data-size="statement"] .u18-row__inner {
   padding-block: 40px;
 }
@@ -634,7 +634,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   }
 }
 
-/* ===== Event row（design.md §7.4） ===== */
+/* ===== Event row ===== */
 .u18-event-row__inner {
   display: grid;
   gap: 20px;
@@ -720,7 +720,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   max-width: 42em;
 }
 
-/* ===== Header（design.md §7.1） ===== */
+/* ===== Header ===== */
 .u18-header {
   position: sticky;
   top: 0;
@@ -866,7 +866,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   }
 }
 
-/* ===== Theme control（design.md §4.3） ===== */
+/* ===== Theme control ===== */
 .u18-theme-control {
   position: relative;
 }
@@ -953,7 +953,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   }
 }
 
-/* ===== Footer（design.md §7.6） ===== */
+/* ===== Footer ===== */
 .u18-footer {
   border-top: 1px solid var(--color-border);
   background: var(--color-canvas);
@@ -1056,7 +1056,7 @@ a.u18-row__inner:focus-visible .u18-row__arrow {
   }
 }
 
-/* ===== Hero（design.md §8.1） ===== */
+/* ===== Hero ===== */
 .u18-hero {
   position: relative;
   display: flex;
@@ -1176,7 +1176,7 @@ html[data-hero-play] [data-hero-step] {
   margin-top: 40px;
 }
 
-/* ===== Statement（S04。反転した面に大きな文字を1つ） ===== */
+/* ===== Statement（反転した面に大きな文字を1つ） ===== */
 .u18-statement {
   background: var(--color-canvas);
   color: var(--color-text);
@@ -1213,7 +1213,7 @@ html[data-hero-play] [data-hero-step] {
   margin-top: 48px;
 }
 
-/* ===== Call to action（S08） ===== */
+/* ===== Call to action ===== */
 .u18-cta {
   text-align: center;
 }
@@ -1233,7 +1233,7 @@ html[data-hero-play] [data-hero-step] {
   justify-content: center;
 }
 
-/* ===== Split（文と挿絵を左右に並べる。S03） ===== */
+/* ===== Split（文と挿絵を左右に並べる） ===== */
 .u18-split {
   display: grid;
   align-items: center;
@@ -1691,7 +1691,7 @@ html[data-motion] .u18-dialog[open]::backdrop {
   }
 }
 
-/* ===== Motion（design.md §9） ===== */
+/* ===== Motion ===== */
 
 /* スクロールで表示する要素。JS が動いて、演出してよいときだけ隠す */
 html[data-motion][data-reveal-ready] [data-reveal]:not([data-revealed]) {

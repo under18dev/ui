@@ -5,7 +5,7 @@ import { Reveal } from './Reveal'
 export interface StatementProps {
   /** 大きな文字の前の一文 */
   kicker?: ReactNode
-  /** 最も印象的な文字。ページに1か所だけ使う（design.md §8.4） */
+  /** 最も印象的な文字。ページに1か所だけ使う */
   title: ReactNode
   body?: ReactNode
   actions?: ReactNode
@@ -17,7 +17,7 @@ export interface StatementProps {
   id?: string
 }
 
-/** 問いかけから団体の紹介へ切り替える、大きな文字の章（S04） */
+/** 問いかけから団体の紹介へ切り替える、大きな文字の章 */
 export function Statement({ kicker, title, body, actions, inverse = true, align = 'center', tight = false, id }: StatementProps) {
   const fallbackId = useId()
   const headingId = id ? `${id}-heading` : fallbackId

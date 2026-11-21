@@ -7,7 +7,7 @@ export interface ThemeScriptProps {
 }
 
 /**
- * テーマを最初の描画より前に確定するスクリプト（design.md §4.2）。
+ * テーマを最初の描画より前に確定するスクリプト。
  * <head> の中、CSS より前に置く。動きを減らす設定でなければ html に data-motion も付ける。
  */
 export function ThemeScript({ heroMotion = false, nonce }: ThemeScriptProps) {

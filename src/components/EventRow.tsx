@@ -23,7 +23,7 @@ export interface EventRowProps {
   date?: string
   /** 表示用の日付の文字列。省略すると date から「2026.11.21（土）」の形で作る */
   dateLabel?: string
-  /** 開催状態。必ず明示する（design.md §7.4） */
+  /** 開催状態。必ず明示する */
   status: EventStatus
   venue?: ReactNode
   image?: { src: string; alt?: string }
@@ -43,7 +43,7 @@ export function formatEventDate(iso: string): string {
   return `${y}.${m}.${d}（${weekdays[jst.getUTCDay()]}）`
 }
 
-/** イベントの1行。行全体がリンクになる（design.md §7.3・§7.4）。RowList の中に置く */
+/** イベントの1行。行全体がリンクになる。RowList の中に置く */
 export function EventRow({
   href,
   external,

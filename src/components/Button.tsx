@@ -29,7 +29,7 @@ export type ButtonAsButtonProps = CommonProps &
 export type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps
 
 /**
- * pill 形のボタン（design.md §7.2 / DECISION-004）。href を渡すとリンクとして描く。
+ * pill 形のボタン。href を渡すとリンクとして描く。
  * 押している間だけ少し沈む。無効のときは破線にして、押せないことを形でも伝える。
  */
 export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(function Button(props, ref) {

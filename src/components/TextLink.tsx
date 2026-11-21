@@ -11,7 +11,7 @@ export interface TextLinkProps extends BaseLinkProps {
   children: ReactNode
 }
 
-/** 文字のリンク。色だけに頼らず、下線で識別できるようにする（design.md §7.2・§12.2） */
+/** 文字のリンク。色だけに頼らず、下線で識別できるようにする */
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(function TextLink(
   { strong, arrow, className, children, href, external, ...rest },
   ref,
