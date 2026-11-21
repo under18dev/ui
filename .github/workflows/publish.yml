@@ -1,0 +1,63 @@
+# v0.1.1 のようなタグを push すると、検査してから npm に公開する。
+# npm のトークンは使わず、trusted publishing（OIDC）で公開する。
+# 事前に npmjs.com の @under18dev/ui の Settings で、このリポジトリとこのファイル名を Trusted Publisher に登録しておく
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install --frozen-lockfile
+
+      # タグとパッケージのバージョンが食い違っていたら止める
+      - name: Check version
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "タグ $GITHUB_REF_NAME と package.json のバージョン $version が一致しません" >&2
+            exit 1
+          fi
+
+      - run: bun run typecheck
+      - run: bun run build
+
+      # Chrome はランナーに入っている。WebKit と Firefox だけ入れる
+      - run: bunx playwright install --with-deps webkit firefox
+      - run: bun run test
+      - run: bun run test:docs
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # trusted publishing と provenance に使う
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      # trusted publishing には npm 11.5.1 以上が要る
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install -g npm@latest
+
+      - run: bun install --frozen-lockfile
+
+      # prepublishOnly でビルドと型チェックが走る
+      - run: npm publish --provenance --access public

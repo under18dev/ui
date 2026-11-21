@@ -101,7 +101,23 @@ bun run test       # Chrome・WebKit・Firefox で、テーマ・キーボード
 
 ## 公開
 
-`npm publish` で npm に公開します。公開の前に `prepublishOnly` でビルドと型チェックが走ります。公開先は `publishConfig` で npm 本体（registry.npmjs.org）に固定しています。
+GitHub Actions（`.github/workflows/publish.yml`）で npm に公開します。`package.json` のバージョンを上げてコミットし、同じ名前のタグを push すると、型チェック・ビルド・テストを通してから公開します。
+
+```sh
+npm version patch   # package.json を 0.1.1 にし、v0.1.1 のタグを付ける
+git push --follow-tags
+```
+
+npm のトークンは使わず、trusted publishing（OIDC）で公開します。最初の一度だけ、npmjs.com の `@under18dev/ui` の Settings で Trusted Publisher に次を登録してください。
+
+| 項目 | 値 |
+|---|---|
+| Publisher | GitHub Actions |
+| Organization or user | `under18dev` |
+| Repository | `ui` |
+| Workflow filename | `publish.yml` |
+
+手元から公開するときは `npm publish` です。公開の前に `prepublishOnly` でビルドと型チェックが走ります。公開先は `publishConfig` で npm 本体（registry.npmjs.org）に固定しています。
 
 ## ライセンス
 
