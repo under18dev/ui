@@ -108,14 +108,14 @@ npm version patch   # package.json を 0.1.1 にし、v0.1.1 のタグを付け�
 git push --follow-tags
 ```
 
-npm のトークンは使わず、trusted publishing（OIDC）で公開します。最初の一度だけ、npmjs.com の `@under18dev/ui` の Settings で Trusted Publisher に次を登録してください。
+npm のトークンは使わず、trusted publishing（OIDC）で公開します。最初の一度だけ、このワークフローを Trusted Publisher として登録してください（2 段階認証が要ります）。
 
-| 項目 | 値 |
-|---|---|
-| Publisher | GitHub Actions |
-| Organization or user | `under18dev` |
-| Repository | `ui` |
-| Workflow filename | `publish.yml` |
+```sh
+npm trust github @under18dev/ui --file publish.yml --repo under18dev/ui --allow-publish --registry=https://registry.npmjs.org
+npm trust list @under18dev/ui --registry=https://registry.npmjs.org   # 登録できたか確かめる
+```
+
+npmjs.com の `@under18dev/ui` の Settings からも、同じ設定ができます。
 
 同じワークフローで、GitHub Packages（`npm.pkg.github.com`）にも公開します。こちらは Actions の `GITHUB_TOKEN` で公開するので、設定は要りません。Actions の画面から Publish を手動で実行すると、GitHub Packages にだけ今のバージョンを公開します。
 
