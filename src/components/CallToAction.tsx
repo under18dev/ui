@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 import { ButtonGroup } from './Button'
 import { Reveal } from './Reveal'
 import { Section } from './Layout'
@@ -14,7 +14,8 @@ export interface CallToActionProps {
 
 /** ページの最後の静かな呼びかけ（S08）。フッター直前に強い CTA を2つ続けない */
 export function CallToAction({ title, body, action, tone = 'section', id }: CallToActionProps) {
-  const headingId = id ? `${id}-heading` : undefined
+  const fallbackId = useId()
+  const headingId = id ? `${id}-heading` : fallbackId
   return (
     <Section tone={tone} id={id} aria-labelledby={headingId} className="u18-cta">
       <Reveal as="h2" id={headingId} className="u18-type-display-l u18-cta__title">

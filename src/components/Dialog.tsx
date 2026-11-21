@@ -4,6 +4,8 @@ export interface DialogProps {
   open: boolean
   onClose: () => void
   title: ReactNode
+  /** タイトルの下の短い説明。aria-describedby で読み上げる */
+  description?: ReactNode
   children: ReactNode
   /** 閉じるボタンの読み上げ名 */
   closeLabel?: string
@@ -13,9 +15,10 @@ export interface DialogProps {
  * モーダル（ネイティブの dialog 要素）。PC は中央のカード、スマホは下から出るシート。
  * Escape・背景のクリック・閉じるボタンで閉じ、開く前にフォーカスしていた要素に戻す。
  */
-export function Dialog({ open, onClose, title, children, closeLabel = '閉じる' }: DialogProps) {
+export function Dialog({ open, onClose, title, description, children, closeLabel = '閉じる' }: DialogProps) {
   const ref = useRef<HTMLDialogElement>(null)
   const titleId = useId()
+  const descriptionId = useId()
 
   useEffect(() => {
     const dialog = ref.current
@@ -35,6 +38,7 @@ export function Dialog({ open, onClose, title, children, closeLabel = '閉じる
       ref={ref}
       className="u18-dialog"
       aria-labelledby={titleId}
+      aria-describedby={description ? descriptionId : undefined}
       onCancel={(event) => {
         event.preventDefault()
         onClose()
@@ -53,7 +57,14 @@ export function Dialog({ open, onClose, title, children, closeLabel = '閉じる
           <span className="u18-sr-only">{closeLabel}</span>
         </button>
       </div>
-      <div className="u18-dialog__body">{children}</div>
+      <div className="u18-dialog__body">
+        {description && (
+          <p id={descriptionId} className="u18-dialog__description">
+            {description}
+          </p>
+        )}
+        {children}
+      </div>
     </dialog>
   )
 }

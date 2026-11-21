@@ -47,7 +47,8 @@ export function Tabs({ items, label, defaultTabId, onChange }: TabsProps) {
   const select = (id: string, focus = false) => {
     if (id === selected) return
     setSelected(id)
-    setEntering(true)
+    // 動きを減らす設定ではアニメーションが走らず animationend も来ないので、付けない
+    setEntering('motion' in document.documentElement.dataset)
     onChange?.(id)
     if (focus) tabRefs.current.get(id)?.focus()
   }

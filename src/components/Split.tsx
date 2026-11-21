@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 import { Reveal } from './Reveal'
 
 export interface SplitProps {
@@ -18,7 +18,8 @@ export interface SplitProps {
  * スマホでは文 → 挿絵の順に縦に積む。スクロールを奪わない。
  */
 export function Split({ eyebrow, title, body, visual, reverse = false, id }: SplitProps) {
-  const headingId = id ? `${id}-heading` : undefined
+  const fallbackId = useId()
+  const headingId = id ? `${id}-heading` : fallbackId
   return (
     <section id={id} className="u18-container u18-split" data-reverse={reverse || undefined} aria-labelledby={headingId}>
       <Reveal className="u18-split__copy">

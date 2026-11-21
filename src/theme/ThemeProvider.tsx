@@ -1,7 +1,8 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react'
 import {
   THEME_STORAGE_KEY,
   applyTheme,
+  isThemeChoice,
   readThemeChoice,
   resolveTheme,
   storeThemeChoice,
@@ -63,17 +64,33 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
 
-/** テーマの状態を読む。ThemeProvider の外では、保存値から読むだけの値を返す */
+// ThemeProvider の外では、html の data-theme・data-theme-preference を見て状態を作る
+function subscribeRoot(onChange: () => void): () => void {
+  const observer = new MutationObserver(onChange)
+  observer.observe(document.documentElement, { attributeFilter: ['data-theme', 'data-theme-preference'] })
+  return () => observer.disconnect()
+}
+
+function readRootSnapshot(): string {
+  const { theme, themePreference } = document.documentElement.dataset
+  return `${themePreference ?? readThemeChoice()}|${theme ?? ''}`
+}
+
+const fallbackSetChoice = (next: ThemeChoice) => {
+  storeThemeChoice(next)
+  applyTheme(next, { animate: true })
+}
+
+/**
+ * テーマの状態を読む。ThemeProvider の外でも、html の属性の変化に合わせて描き直す
+ * （ThemeScript だけを置いたサイトや、ほかの仕組みでテーマを切り替えるサイトでも使える）
+ */
 export function useTheme(): ThemeContextValue {
   const context = useContext(ThemeContext)
+  const snapshot = useSyncExternalStore(subscribeRoot, readRootSnapshot, () => 'system|')
   if (context) return context
-  const choice = typeof window === 'undefined' ? 'system' : readThemeChoice()
-  return {
-    choice,
-    resolved: resolveTheme(choice, systemPrefersDark()),
-    setChoice: (next) => {
-      storeThemeChoice(next)
-      applyTheme(next, { animate: true })
-    },
-  }
+  const [preference, theme] = snapshot.split('|')
+  const choice: ThemeChoice = isThemeChoice(preference) ? preference : 'system'
+  const resolved: ResolvedTheme = theme === 'dark' || theme === 'light' ? theme : resolveTheme(choice, systemPrefersDark())
+  return { choice, resolved, setChoice: fallbackSetChoice }
 }

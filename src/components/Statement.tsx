@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 import { ButtonGroup } from './Button'
 import { Reveal } from './Reveal'
 
@@ -19,7 +19,8 @@ export interface StatementProps {
 
 /** 問いかけから団体の紹介へ切り替える、大きな文字の章（S04） */
 export function Statement({ kicker, title, body, actions, inverse = true, align = 'center', tight = false, id }: StatementProps) {
-  const headingId = id ? `${id}-heading` : undefined
+  const fallbackId = useId()
+  const headingId = id ? `${id}-heading` : fallbackId
   return (
     <section
       id={id}

@@ -15,7 +15,7 @@ export {
   type ResolvedTheme,
   type ThemeChoice,
 } from './theme/theme'
-export { ThemeControl } from './components/ThemeControl'
+export { ThemeControl, type ThemeControlProps } from './components/ThemeControl'
 
 // リンク
 export { LinkProvider, BaseLink, isExternalHref, opensInNewTab, type BaseLinkProps, type LinkComponentProps } from './lib/link'
@@ -23,7 +23,7 @@ export { cx } from './lib/cx'
 
 // レイアウト・文字
 export { Container, Section, type ContainerProps, type SectionProps } from './components/Layout'
-export { Heading, Text, Eyebrow, type HeadingProps, type HeadingSize, type TextProps } from './components/Typography'
+export { Heading, Text, Eyebrow, type HeadingProps, type HeadingSize, type TextProps, type EyebrowProps } from './components/Typography'
 export { SectionHeading, type SectionHeadingProps } from './components/SectionHeading'
 export { Prose } from './components/Prose'
 export { VisuallyHidden } from './components/VisuallyHidden'

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { BaseLink, opensInNewTab } from '../lib/link'
 import { cx } from '../lib/cx'
 import { Arrow } from './Arrow'
@@ -83,7 +83,10 @@ export function Row({
         {size === 'statement' ? (
           <>
             {titleNode}
-            {description && <p className="u18-row__description u18-type-body">{description}</p>}
+            <div>
+              {description && <p className="u18-row__description u18-type-body">{description}</p>}
+              {meta && <p className="u18-row__meta u18-row__gap-md">{meta}</p>}
+            </div>
           </>
         ) : (
           <div>
@@ -96,10 +99,20 @@ export function Row({
       </>
     )
 
+  // PC での列。番号・矢印の有無に合わせて、中身の数と列の数を揃える
+  const columns = [
+    index && '6rem',
+    ...(layout === 'split'
+      ? ['minmax(0, 1fr)', 'minmax(0, 1.4fr)', href && '12rem']
+      : size === 'statement'
+        ? ['minmax(0, 1fr)', 'minmax(0, 1fr)', href && 'auto']
+        : ['minmax(0, 1fr)', href && 'auto']),
+  ].filter(Boolean)
+
   const innerProps = {
     className: cx('u18-row__inner', href && 'u18-arrow-host'),
-    'data-has-index': index && size !== 'statement' ? '' : undefined,
     'data-layout': layout === 'split' ? 'split' : undefined,
+    style: { '--row-columns': columns.join(' ') } as CSSProperties,
   }
 
   return (

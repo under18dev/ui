@@ -74,7 +74,11 @@ export function SiteHeader({
       }
       // 開いている間は、ボタンとメニューの中だけでフォーカスを回す
       if (event.key === 'Tab' && button && panel) {
-        const focusables = [button, ...panel.querySelectorAll<HTMLElement>('a[href]')]
+        // ヘッダーの右側の操作（テーマ切替・メニューボタン）と、メニューの中のリンクだけで回す
+        const actions = [...(button.parentElement?.querySelectorAll<HTMLElement>('button, a[href]') ?? [])].filter(
+          (element) => element.offsetParent !== null,
+        )
+        const focusables = [...actions, ...panel.querySelectorAll<HTMLElement>('a[href], button')]
         const first = focusables[0]
         const last = focusables[focusables.length - 1]
         if (event.shiftKey && document.activeElement === first) {

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { BaseLink } from '../lib/link'
+import { BaseLink, opensInNewTab } from '../lib/link'
 import { Arrow } from './Arrow'
 import { Badge } from './Badge'
 import { Reveal } from './Reveal'
@@ -14,6 +14,8 @@ const statusLabels: Record<EventStatus, string> = {
 
 export interface EventRowProps {
   href: string
+  /** 新しいタブで開く。未指定なら http(s) の外部リンクだけ新しいタブ */
+  external?: boolean
   title: ReactNode
   /** 1〜2行の説明 */
   description?: ReactNode
@@ -44,6 +46,7 @@ export function formatEventDate(iso: string): string {
 /** イベントの1行。行全体がリンクになる（design.md §7.3・§7.4）。RowList の中に置く */
 export function EventRow({
   href,
+  external,
   title,
   description,
   date,
@@ -57,7 +60,7 @@ export function EventRow({
   const H = `h${headingLevel}` as const
   return (
     <Reveal as="li" className="u18-row" disabled={!reveal}>
-      <BaseLink href={href} className="u18-event-row__inner u18-arrow-host" data-has-image={image ? '' : undefined}>
+      <BaseLink href={href} external={external} className="u18-event-row__inner u18-arrow-host" data-has-image={image ? '' : undefined}>
         <div className="u18-event-row__when">
           {date && (
             <time dateTime={date} className="u18-event-row__date">
@@ -82,7 +85,7 @@ export function EventRow({
           )}
         </div>
         {image && <img className="u18-event-row__image" src={image.src} alt={image.alt ?? ''} width={1200} height={630} loading="lazy" decoding="async" />}
-        <Arrow className="u18-event-row__arrow" />
+        <Arrow direction={opensInNewTab(href, external) ? 'external' : 'next'} className="u18-event-row__arrow" />
       </BaseLink>
     </Reveal>
   )
