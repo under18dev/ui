@@ -1,6 +1,6 @@
 # @under18dev/ui
 
-Under18 Developers のデザインシステム（`design.md` U18-DESIGN-001 と DECISION-001〜008）に沿った React コンポーネントです。部品を組み合わせるだけで、under18.dev と同じ見た目・動き・アクセシビリティのサイトを作れます。
+Under18 Developers のデザインシステムに沿った React コンポーネントです。部品を組み合わせるだけで、under18.dev と同じ見た目・動き・アクセシビリティのサイトを作れます。
 
 - 色は白・黒・グレーの無彩色だけ。ライト / ダーク / システム設定の3つのテーマに対応します
 - CSS は素の CSS（Tailwind 不要）。クラス名はすべて `u18-` で始まります
@@ -59,9 +59,9 @@ Next.js の `Link` などを使うときは、`LinkProvider` に渡します。`
 | 操作 | `Button` `ButtonGroup` `TextLink` `Arrow` | pill 形のボタン（primary / secondary）、下線のリンク |
 | データ | `RowList` `Row` `EventRow` `Card` `LinkCard` `CardGrid` `Badge` `InfoList` `EmptyState` | 罫線のリスト、イベントの行、紙のカード、状態のラベル、「項目：値」、データがないとき |
 | 開閉 | `Accordion` `Tabs` `Dialog` | よくある質問（JS なしで動く）、pill 形のタブ、モーダル / スマホのシート |
-| ページ | `SiteHeader` `SiteFooter` `SkipLink` `Hero` `Muted` `PageHero` `Split` `Statement` `CallToAction` `Reveal` | トップの S01〜S08 と下層ページの冒頭、スクロール表示 |
+| ページ | `SiteHeader` `SiteFooter` `SkipLink` `Hero` `Muted` `PageHero` `Split` `Statement` `CallToAction` `Reveal` | ページの骨組み、トップと下層ページの冒頭、スクロール表示 |
 
-使い分けの原則（design.md）:
+使い分けの原則:
 
 - 主要なボタン（`variant="primary"`）は、1つの画面に1つまで
 - カードは、イベントなど実際の異なるデータを並べるときだけ。読めるなら `RowList` を使う

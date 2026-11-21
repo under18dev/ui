@@ -351,7 +351,7 @@ function ComponentsPage() {
       <Section>
         <PageHero eyebrow="Components" title="コンポーネント一覧">
           <p>
-            design.md（U18-DESIGN-001）と DECISION-001〜008 に沿った部品です。色は無彩色のトークンだけを使い、ライトとダークで同じ意味になります。
+            Under18 Developers のデザインシステムに沿った部品です。色は無彩色のトークンだけを使い、ライトとダークで同じ意味になります。
           </p>
         </PageHero>
       </Section>

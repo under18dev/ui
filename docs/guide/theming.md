@@ -50,7 +50,3 @@ function Example() {
 ## 反転した面
 
 `Section` の `tone="inverse"` や [Statement](/components/statement) は、`.u18-inverse` クラスでトークンごと反転します。ライトでは黒い面、ダークでは白い面になります。中に置いた部品は、ふだんどおりのトークンのまま正しい色になります。
-
-## このサイトでの扱い
-
-このドキュメントでは、右上のテーマの切り替えと、ライブラリの `data-theme` を同期しています。プレビューの中の [ThemeControl](/components/theme-control) で切り替えても、サイト全体のテーマが変わります。

@@ -1,6 +1,6 @@
 # Hero
 
-トップページの最初の画面（S01）です。大きな左寄せの見出しを主役に、説明文とボタンを続けます。
+トップページの最初の画面です。大きな左寄せの見出しを主役に、説明文とボタンを続けます。
 
 <ComponentPreview name="hero-demo" align="full">
 
@@ -26,7 +26,7 @@ import { Button, Hero, Muted } from '@under18dev/ui'
 
 ### ボタンを1つにする
 
-ボタンは1〜2個にします（design.md §8.1）。2個のときは2つ目を `variant="secondary"` にします。Hero で複数の活動を紹介しません。
+ボタンは1〜2個にします。2個のときは2つ目を `variant="secondary"` にします。Hero で複数の活動を紹介しません。
 
 <ComponentPreview name="hero-single" align="full">
 
@@ -44,9 +44,9 @@ import { Button, Hero, Muted } from '@under18dev/ui'
 
 ## 高さと登場の演出
 
-高さは、画面の高さの 80%（スマホ）・85%（タブレット）・100%（PC）からヘッダーの高さを引いた分です。プレビューでは中をスクロールして続きを見てください。
+高さは、画面の高さの 80%（スマホ）・85%（タブレット）・100%（PC）からヘッダーの高さを引いた分です。
 
-`ThemeScript` に `heroMotion` を付けると、見出し・説明・ボタンの順に 120ms ずつずらして表示します。再生するのはセッションの最初の1回だけで、動きを減らす設定では再生しません。このページのプレビューでは再生しません。
+`ThemeScript` に `heroMotion` を付けると、見出し・説明・ボタンの順に 120ms ずつずらして表示します。再生するのはセッションの最初の1回だけで、動きを減らす設定では再生しません。
 
 ```tsx
 <ThemeScript heroMotion />

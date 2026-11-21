@@ -53,7 +53,7 @@ export default defineConfig({
     returnToTopLabel: 'ページの先頭へ',
     search: { provider: 'local' },
     footer: {
-      message: 'design.md（U18-DESIGN-001）と DECISION-001〜008 に沿って作っています。',
+      message: 'Apache License 2.0 で公開しています。',
       copyright: '© Under18 Developers',
     },
   },

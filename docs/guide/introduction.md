@@ -4,8 +4,6 @@ Under18 Developers UI は、[Under18 Developers](https://under18.dev/) のサイ
 
 ## 方針
 
-見た目と動きは、団体のデザイン仕様書（design.md、U18-DESIGN-001）と、そこから承認して変えた点（DECISION-001〜008）に合わせています。
-
 色は白・黒・グレーだけです。ライトとダークで同じ情報が同じ強さで伝わるよう、トークンを入れ替えて切り替えます。
 
 人数・日付・実績のような事実は、公開済みのものだけを載せる前提です。データがないページでは架空の内容で埋めず、[EmptyState](/components/empty-state) を出します。
@@ -13,12 +11,3 @@ Under18 Developers UI は、[Under18 Developers](https://under18.dev/) のサイ
 ## 中身
 
 色・余白・文字の大きさ・動きの速さは CSS 変数（[デザイントークン](/guide/tokens)）にしてあります。テーマの切り替えは [テーマとダークモード](/guide/theming)、部品の一覧は [コンポーネント](/components/) にまとめました。
-
-## 検査
-
-リポジトリの `tests/` で、Playwright を使って Chrome・WebKit（Safari）・Firefox の 3 ブラウザで次のことを確かめています。
-
-- テーマの初期表示・保存・不正な保存値のときの扱い
-- メニュー・タブ・ダイアログのキーボード操作と、フォーカスの戻し先
-- axe による WCAG 2.2 AA の検査
-- 320px 幅で横スクロールが出ないこと

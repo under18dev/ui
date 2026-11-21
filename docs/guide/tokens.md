@@ -69,7 +69,7 @@
 |---|---|---|
 | `--radius-sm` | 4px | インラインのコード |
 | `--radius-md` | 8px | メニュー・画像 |
-| `--radius-paper` | 11px | カード（DECISION-004） |
+| `--radius-paper` | 11px | カード |
 | `--radius-pill` | 9999px | ボタン・ラベル・タブ |
 
 ## 動き

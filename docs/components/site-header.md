@@ -24,8 +24,6 @@ import { SiteHeader } from '@under18dev/ui'
 />
 ```
 
-実際のサイトでは同じサイトの中のパスを渡します。このページのデモはドキュメントの外へ移動しないよう、`https://under18.dev/...` を渡しているため新しいタブで開きます。
-
 ## 例
 
 ### 現在のページ
@@ -40,7 +38,7 @@ import { SiteHeader } from '@under18dev/ui'
 
 ### 項目を減らす
 
-`cta` を省くと「参加する」のボタンを出しません。`themeControl={false}` でテーマ切替も消せます。ナビは design.md §2.3 に沿って4項目程度までにします。
+`cta` を省くと「参加する」のボタンを出しません。`themeControl={false}` でテーマ切替も消せます。ナビは4項目程度までにします。
 
 <ComponentPreview name="site-header-minimal" align="full" :min-height="120">
 
@@ -56,8 +54,6 @@ import { SiteHeader } from '@under18dev/ui'
 - フォーカスは「閉じる」ボタンとメニューのリンクの間だけを回ります。
 - Escape で閉じ、フォーカスをボタンに戻します。リンクを押したときも閉じます。
 - 幅が 1024px 以上に広がると自動で閉じます。
-
-このページのプレビューは、ブラウザの幅を 1024px 未満にするとメニューの表示になります。
 
 ## Props
 
@@ -75,5 +71,5 @@ import { SiteHeader } from '@under18dev/ui'
 
 - 横並びのナビには「メイン」、スマホのメニューには「メニュー」というラベルを付けた `<nav>` を使います。
 - 「メニュー」ボタンは `aria-expanded` と `aria-controls` で開閉の状態とメニューを結びます。ボタンの文字も「メニュー」と「閉じる」で切り替わります。
-- ヘッダーの前に [SkipLink](./skip-link) を置きます（design.md §7.1）。
-- 上に固定し、スクロールすると背景と 1px の区切り線が付きます。プレビューの中では固定しません。
+- ヘッダーの前に [SkipLink](./skip-link) を置きます。
+- 上に固定し、スクロールすると背景と 1px の区切り線が付きます。

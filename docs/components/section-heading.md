@@ -24,7 +24,7 @@ import { Section, SectionHeading } from '@under18dev/ui'
 
 ### 中央揃え
 
-`align="center"` で中央に揃えます。トップページの参加の案内のように、見出しとリード文だけで終わる短い章に使います。長い文章を中央揃えにはしません。
+`align="center"` で中央に揃えます。見出しとリード文だけで終わる短い章に使います。長い文章を中央揃えにはしません。
 
 <ComponentPreview name="section-heading-center" align="start">
 

@@ -1,6 +1,6 @@
 # CallToAction
 
-ページの最後、フッターの直前に置く呼びかけです。トップページの S08 で「参加方法を見る」へ案内します。
+ページの最後、フッターの直前に置く呼びかけです。「参加方法を見る」のような、ページを読み終えた人に次にしてほしいことへ案内します。
 
 <ComponentPreview name="call-to-action-demo" align="full">
 
@@ -34,7 +34,7 @@ import { Button, CallToAction } from '@under18dev/ui'
 
 ## 使うときの決まり
 
-- `action` には primary の Button を1つだけ渡します（design.md §8.8）。トップページなら「参加方法を見る」か「活動を見る」のどちらかです。
+- `action` には primary の Button を1つだけ渡します。
 - Hero と同じ大きさの派手さを繰り返しません。見出しは Hero より一段小さい大きさです。
 - フッターの中にもう一度強い呼びかけを置き、呼びかけを2つ続けることはしません。
 

@@ -35,5 +35,5 @@ import { SiteHeader, SkipLink } from '@under18dev/ui'
 
 ## アクセシビリティ
 
-- design.md §7.1 の決まりで、すべてのページに置きます。
+- すべてのページに置きます。
 - 隠している間も、スクリーンリーダーからは読めます。

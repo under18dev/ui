@@ -1,6 +1,6 @@
 # RowList
 
-罫線で区切った縦のリストです。under18.dev ではカードの代わりにこれを使います。
+罫線で区切った縦のリストです。カードを並べる代わりに使います。
 
 <ComponentPreview name="row-list-demo" align="start" :min-height="360">
 
@@ -24,7 +24,7 @@ import { RowList, Row } from '@under18dev/ui'
 
 ### 3列に並べる
 
-`layout="split"` にすると、PC でタイトル・説明・リンクの文言を3列に並べます。トップページの「実際の活動」はこの形です。スマホでは縦に積みます。
+`layout="split"` にすると、PC でタイトル・説明・リンクの文言を3列に並べます。スマホでは縦に積みます。
 
 <ComponentPreview name="row-list-split" align="start" :min-height="420">
 

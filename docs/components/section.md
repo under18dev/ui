@@ -22,9 +22,9 @@ import { Section, SectionHeading } from '@under18dev/ui'
 
 ### 背景
 
-`tone` で背景を選びます。ふだんは `canvas`（ページと同じ背景）で、トップページの活動一覧のように、前後の章と分けたいところだけ `section` にします。
+`tone` で背景を選びます。ふだんは `canvas`（ページと同じ背景）で、前後の章と分けたいところだけ `section` にします。
 
-`inverse` はライトでは黒、ダークでは白の面になります。トップページの「Under18 Developers.」のように、強く伝えたい1か所だけに使います。中に置いた部品の色は自動で入れ替わります。
+`inverse` はライトでは黒、ダークでは白の面になります。強く伝えたい1か所だけに使います。中に置いた部品の色は自動で入れ替わります。
 
 <ComponentPreview name="section-tones" align="full" :minHeight="480">
 

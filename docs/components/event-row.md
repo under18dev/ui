@@ -45,7 +45,7 @@ import { RowList, EventRow } from '@under18dev/ui'
 
 ### 予定がないとき
 
-表示するイベントがなければ、架空のイベントで埋めずに [EmptyState](./empty-state) に切り替えます。この例は、クリぼっちMeetup 2026 が終わると EmptyState になります。
+表示するイベントがなければ、架空のイベントで埋めずに [EmptyState](./empty-state) に切り替えます。
 
 <ComponentPreview name="event-row-empty" align="start" :min-height="240">
 

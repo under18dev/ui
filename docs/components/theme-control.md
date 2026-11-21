@@ -8,10 +8,6 @@
 
 </ComponentPreview>
 
-::: tip このサイトでの動き
-このドキュメントでは、右上のテーマの切り替えと同期しています。プレビューで選ぶと、サイト全体のテーマが変わります。
-:::
-
 ## 使い方
 
 [SiteHeader](/components/site-header) には最初から入っています（`themeControl={false}` で外せます）。単独で使うのは、ヘッダーの外に置くときです。
