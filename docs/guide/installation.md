@@ -2,25 +2,23 @@
 
 ## パッケージを入れる
 
-npm には公開していません。GitHub のリポジトリから入れます。
-
 ::: code-group
 
 ```sh [bun]
-bun add github:under18dev/ui
+bun add @under18dev/ui
 ```
 
 ```sh [npm]
-npm install github:under18dev/ui
+npm install @under18dev/ui
+```
+
+```sh [pnpm]
+pnpm add @under18dev/ui
 ```
 
 :::
 
-React 18 以上が必要です。
-
-::: tip サブモジュールとして使う場合
-under18.dev のリポジトリでは、`components/` にサブモジュールとして入れています。その場合は、`components/` で `bun install` と `bun run build` を実行し、`dist/` を参照してください。
-:::
+React 18 以上が必要です。Next.js の App Router でも、そのまま Server Component から読み込めます。フックを使う部品には `"use client"` が付いています。
 
 ## CSS を読み込む
 

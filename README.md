@@ -6,6 +6,14 @@ Under18 Developers のデザインシステム（`design.md` U18-DESIGN-001 と 
 - CSS は素の CSS（Tailwind 不要）。クラス名はすべて `u18-` で始まります
 - 依存は React だけ（React 18 以上）。サーバーでの描画（Next.js・Astro など）にも対応します
 
+## インストール
+
+```sh
+bun add @under18dev/ui
+```
+
+React 18 以上が必要です。ライセンスは Apache-2.0 です。
+
 ## 使い方
 
 ```tsx
@@ -90,3 +98,11 @@ bun run typecheck
 bun run build      # dist/ に JS・型・CSS を出力
 bun run test       # Chrome・WebKit・Firefox で、テーマ・キーボード操作・axe・320px を検査
 ```
+
+## 公開
+
+`npm publish` で npm に公開します。公開の前に `prepublishOnly` でビルドと型チェックが走ります。公開先は `publishConfig` で npm 本体（registry.npmjs.org）に固定しています。
+
+## ライセンス
+
+[Apache-2.0](./LICENSE)
