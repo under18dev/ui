@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, forwardRef, useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type Ref } from 'react'
 
 export type LinkComponentProps = AnchorHTMLAttributes<HTMLAnchorElement> & {

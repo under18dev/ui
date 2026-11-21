@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { BaseLink } from '../lib/link'
 import { Arrow } from './Arrow'

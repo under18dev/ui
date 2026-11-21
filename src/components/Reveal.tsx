@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useLayoutEffect, useRef, type CSSProperties, type ElementType, type HTMLAttributes, type ReactNode } from 'react'
 
 // サーバーでの描画では useLayoutEffect の警告が出るので、ブラウザだけで使う

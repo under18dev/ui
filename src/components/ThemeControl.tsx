@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react'
 import { useTheme } from '../theme/ThemeProvider'
 import type { ThemeChoice } from '../theme/theme'
