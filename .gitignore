@@ -4,3 +4,5 @@ demo/dist
 test-results
 playwright-report
 .DS_Store
+docs/.vitepress/dist
+docs/.vitepress/cache

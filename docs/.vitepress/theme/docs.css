@@ -1,0 +1,260 @@
+/* ===== VitePress の色を、ライブラリのトークンに合わせて無彩色にする ===== */
+:root {
+  --vp-font-family-base: var(--font-sans);
+  --vp-font-family-mono: var(--font-mono);
+  --vp-c-brand-1: var(--color-text);
+  --vp-c-brand-2: var(--color-text-secondary);
+  --vp-c-brand-3: var(--color-inverse-bg);
+  --vp-c-brand-soft: color-mix(in srgb, var(--color-text) 8%, transparent);
+  --vp-c-bg: var(--color-canvas);
+  --vp-c-bg-alt: var(--color-section);
+  --vp-c-bg-elv: var(--color-surface);
+  --vp-c-bg-soft: var(--color-section);
+  --vp-c-text-1: var(--color-text);
+  --vp-c-text-2: var(--color-text-secondary);
+  --vp-c-text-3: var(--color-text-muted);
+  --vp-c-divider: var(--color-border);
+  --vp-c-gutter: var(--color-border);
+  --vp-c-border: var(--color-border-strong);
+  --vp-c-default-soft: var(--color-surface-raised);
+  --vp-button-brand-bg: var(--color-inverse-bg);
+  --vp-button-brand-text: var(--color-inverse-text);
+  --vp-button-brand-hover-bg: color-mix(in srgb, var(--color-inverse-bg) 82%, var(--color-canvas));
+  --vp-button-brand-hover-text: var(--color-inverse-text);
+  --vp-button-brand-active-bg: var(--color-inverse-bg);
+  --vp-button-brand-active-text: var(--color-inverse-text);
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-border: var(--color-border-strong);
+  --vp-button-alt-text: var(--color-text);
+  --vp-button-alt-hover-border: var(--color-text);
+  --vp-button-alt-hover-text: var(--color-text);
+  --vp-button-alt-hover-bg: transparent;
+  --vp-home-hero-name-color: var(--color-text);
+  --vp-code-color: var(--color-text);
+  --vp-custom-block-tip-bg: var(--color-section);
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--color-text-secondary);
+  --vp-c-tip-1: var(--color-text);
+  --vp-c-tip-soft: var(--color-section);
+  --vp-c-warning-1: var(--color-text);
+  --vp-c-warning-soft: var(--color-surface-raised);
+}
+
+/* 本文のリンクは下線で識別できるようにする（プレビューの中は除く） */
+.vp-doc a:not(.vp-raw *) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.3em;
+}
+
+.vp-doc a:not(.vp-raw *):hover {
+  text-decoration-color: var(--color-text);
+}
+
+/* ===== ComponentPreview ===== */
+.cp {
+  margin: 24px 0;
+}
+
+.cp-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cp-tabs button {
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.cp-tabs button:hover {
+  color: var(--color-text);
+}
+
+.cp-tabs button.active {
+  border-bottom-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.cp-preview {
+  position: relative;
+  display: flex;
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-canvas);
+  /* 中の position: fixed（スマホのメニューなど）を、プレビューの枠の中に収める */
+  transform: translateZ(0);
+}
+
+.cp-preview[data-align="center"] {
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.cp-preview[data-align="start"] {
+  align-items: flex-start;
+  padding: 32px 24px;
+}
+
+.cp-preview[data-align="full"] {
+  display: block;
+  max-height: 720px;
+  overflow: auto;
+}
+
+.cp-preview > .u18-preview {
+  width: 100%;
+}
+
+.cp-preview[data-align="center"] > .u18-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.cp-error {
+  color: var(--color-text);
+}
+
+.cp-code {
+  margin-top: 16px;
+}
+
+.cp-code div[class*="language-"] {
+  margin: 0;
+}
+
+/* ===== プレビューの中だけに、要素の初期スタイル（base.css 相当）を当てる。
+   コンポーネントのクラスより弱くなるよう、:where() で優先度を 0 にする ===== */
+:where(.u18-preview) {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.85;
+  word-break: auto-phrase;
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(.u18-preview) *,
+:where(.u18-preview) *::before,
+:where(.u18-preview) *::after {
+  box-sizing: border-box;
+}
+
+:where(.u18-preview) :is(h1, h2, h3, h4, p, ul, ol, dl, dd, figure) {
+  margin: 0;
+  border: 0;
+  padding-top: 0;
+  letter-spacing: normal;
+}
+
+:where(.u18-preview) :is(h1, h2, h3, h4) {
+  text-wrap: pretty;
+}
+
+:where(.u18-preview) :is(ul, ol) {
+  padding: 0;
+  list-style: none;
+}
+
+:where(.u18-preview) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(.u18-preview) button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:where(.u18-preview) :is(img, svg) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(.u18-preview) :focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+:where(.u18-preview) ::selection {
+  background: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+/* ヘッダーなどの sticky をプレビューの枠の中で扱う */
+.u18-preview .u18-header {
+  position: relative;
+}
+
+/* ===== Props の表 ===== */
+.props-table {
+  display: table;
+  width: 100%;
+  font-size: 14px;
+}
+
+.props-table td {
+  vertical-align: top;
+}
+
+.props-table .props-type {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ===== コンポーネント一覧 ===== */
+.ci-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0 24px;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.ci-list li {
+  margin: 0 !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ci-list a {
+  display: block;
+  padding: 12px 0;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+/* 大きな見出しの文字の大きさは画面の幅で決まる。プレビューの枠は実際のページより狭いので、
+   プレビューの中だけ、枠の幅に合わせて縮める */
+.cp-preview {
+  container-type: inline-size;
+}
+
+.cp-preview .u18-type-display-xl {
+  font-size: clamp(36px, 11cqi, 112px);
+}
+
+.cp-preview .u18-type-display-l {
+  font-size: clamp(32px, 7cqi, 80px);
+}
+
+.cp-preview .u18-type-h1 {
+  font-size: clamp(30px, 7cqi, 64px);
+}
+
+.cp-preview .u18-type-h2 {
+  font-size: clamp(26px, 5.5cqi, 48px);
+}

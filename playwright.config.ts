@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: 'tests',
+  testMatch: 'ui.spec.ts',
   fullyParallel: true,
   reporter: 'list',
   use: { baseURL: 'http://localhost:4319/' },

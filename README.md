@@ -10,7 +10,7 @@ Under18 Developers のデザインシステム（`design.md` U18-DESIGN-001 と 
 
 ```tsx
 // アプリの入口で、CSS を一度だけ読み込む
-import '@under18dev/ui/styles.css'
+import '@under18dev/ui/styles.css' // 別のリセットを使うなら tokens.css と components.css だけ
 import { ThemeScript, ThemeProvider, SiteHeader, Hero, Button, SiteFooter } from '@under18dev/ui'
 ```
 
@@ -63,6 +63,24 @@ Next.js の `Link` などを使うときは、`LinkProvider` に渡します。`
 
 全ページの組み立て例は `demo/src/App.tsx` にあります。
 
+## ドキュメント
+
+`docs/` は VitePress のドキュメントサイトです。コンポーネントごとに、動くプレビューとコード、Props、アクセシビリティの注意をまとめています。プレビューは `docs/demos/` の React コンポーネントを、そのまま描いています。
+
+```sh
+bun run docs:dev     # 手元で開く
+bun run docs:build   # docs/.vitepress/dist に書き出す
+bun run test:docs    # 全ページを、ライトとダークで検査する（エラー・プレビューの表示・axe）
+```
+
+Cloudflare Pages では、このリポジトリを Git 連携でつなぎ、次のように設定します。
+
+| 項目 | 値 |
+|---|---|
+| ビルドコマンド | `bun run docs:build` |
+| 出力ディレクトリ | `docs/.vitepress/dist` |
+| ルートディレクトリ | （空欄） |
+
 ## 開発
 
 ```sh
@@ -70,5 +88,5 @@ bun install
 bun run dev        # 見本サイト（demo/）を開く
 bun run typecheck
 bun run build      # dist/ に JS・型・CSS を出力
-bunx playwright test  # Chrome・WebKit・Firefox で、テーマ・キーボード操作・axe・320px を検査
+bun run test       # Chrome・WebKit・Firefox で、テーマ・キーボード操作・axe・320px を検査
 ```

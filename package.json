@@ -15,7 +15,9 @@
       "import": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/tokens.css"
+    "./tokens.css": "./dist/tokens.css",
+    "./components.css": "./dist/components.css",
+    "./base.css": "./dist/base.css"
   },
   "files": [
     "dist"
@@ -26,7 +28,11 @@
     "build:demo": "vite build demo",
     "preview": "vite preview demo --port 4319",
     "typecheck": "tsc --noEmit",
-    "test": "playwright test"
+    "test": "playwright test",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs --port 4320",
+    "test:docs": "playwright test -c playwright.docs.config.ts"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -43,6 +49,8 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "typescript": "^7.0.2",
-    "vite": "^8.3.8"
+    "vite": "^8.3.8",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.46"
   }
 }
