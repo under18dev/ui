@@ -1,12 +1,14 @@
-# v0.1.1 のようなタグを push すると、検査してから npm に公開する。
-# npm のトークンは使わず、trusted publishing（OIDC）で公開する。
-# 事前に npmjs.com の @under18dev/ui の Settings で、このリポジトリとこのファイル名を Trusted Publisher に登録しておく
+# v0.1.1 のようなタグを push すると、検査してから npm と GitHub Packages に公開する。
+# npm へはトークンを使わず、trusted publishing（OIDC）で公開する。
+# 事前に npmjs.com の @under18dev/ui の Settings で、このリポジトリとこのファイル名を Trusted Publisher に登録しておく。
+# Actions の画面から手動で実行したときは、GitHub Packages にだけ今のバージョンを公開する（npm に公開済みの版を後から載せる用）
 name: Publish
 
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,6 +25,7 @@ jobs:
 
       # タグとパッケージのバージョンが食い違っていたら止める
       - name: Check version
+        if: github.event_name == 'push'
         run: |
           version=$(node -p "require('./package.json').version")
           if [ "v$version" != "$GITHUB_REF_NAME" ]; then
@@ -40,6 +43,7 @@ jobs:
 
   publish:
     needs: test
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -61,3 +65,29 @@ jobs:
 
       # prepublishOnly でビルドと型チェックが走る
       - run: npm publish --provenance --access public
+
+  github-packages:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: '@under18dev'
+
+      - run: bun install --frozen-lockfile
+
+      # package.json の publishConfig は npm 本体に固定してあるので、ここでだけ外して GitHub Packages に向ける
+      - run: npm pkg delete publishConfig.registry
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

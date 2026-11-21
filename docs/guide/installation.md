@@ -18,6 +18,13 @@ pnpm add @under18dev/ui
 
 :::
 
+GitHub Packages にも同じものを公開しています。こちらから入れる場合は、`read:packages` の権限を付けた GitHub のトークンを用意し、`.npmrc` に次のように書きます。
+
+```ini
+@under18dev:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
 React 18 以上が必要です。Next.js の App Router でも、そのまま Server Component から読み込めます。フックを使う部品には `"use client"` が付いています。
 
 ## CSS を読み込む

@@ -117,6 +117,8 @@ npm のトークンは使わず、trusted publishing（OIDC）で公開します
 | Repository | `ui` |
 | Workflow filename | `publish.yml` |
 
+同じワークフローで、GitHub Packages（`npm.pkg.github.com`）にも公開します。こちらは Actions の `GITHUB_TOKEN` で公開するので、設定は要りません。Actions の画面から Publish を手動で実行すると、GitHub Packages にだけ今のバージョンを公開します。
+
 手元から公開するときは `npm publish` です。公開の前に `prepublishOnly` でビルドと型チェックが走ります。公開先は `publishConfig` で npm 本体（registry.npmjs.org）に固定しています。
 
 ## ライセンス
