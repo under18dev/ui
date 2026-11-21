@@ -1,6 +1,6 @@
 {
   "name": "@under18dev/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Under18 Developers のデザインシステム（design.md U18-DESIGN-001）に沿った React コンポーネント",
   "license": "Apache-2.0",
   "author": "Under18 Developers",
